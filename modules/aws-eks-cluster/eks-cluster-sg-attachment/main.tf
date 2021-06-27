@@ -1,0 +1,11 @@
+
+resource "aws_security_group_rule" "this" {
+  count                       = var.create_sg_rule_attachment ? 1 : 0
+
+  type                      = "ingress"
+  from_port                 = var.from_port
+  to_port                   = var.to_port
+  protocol                  = "tcp"
+  source_security_group_id  = var.source_security_group_id
+  security_group_id         = var.security_group_id
+}
